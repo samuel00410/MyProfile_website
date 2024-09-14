@@ -31,8 +31,8 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci
-            nulla impedit distinctio fugit nemo expedita.
+            我是一位前端工程師，專注於開發網站，使用過 React.js 、 Vue.js
+            、Node.js 和 MySQL 進行開發，喜歡學習新技術。
           </p>
           <div>
             <button className="px-6 py-3 mr-4 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">
