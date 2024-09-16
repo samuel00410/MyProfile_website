@@ -31,7 +31,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            我是一位前端工程師，專注於開發網站，使用過 React.js 、 Vue.js
+            我是一位全端工程師，專注於開發網站，使用過 React.js 、 Vue.js
             、Node.js 和 MySQL 進行開發，喜歡學習新技術。
           </p>
           <div>
