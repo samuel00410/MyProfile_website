@@ -69,7 +69,6 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-
       {/* 下拉選單 (平板以上不顯示) */}
       {isNavbarOpen ? <MenuOverlay links={navLinks} /> : null}
     </nav>

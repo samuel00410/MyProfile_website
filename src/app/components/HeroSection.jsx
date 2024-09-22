@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-12">
-        <div className="col-span-7 place-self-center text-center sm:text-left">
+        <div className="col-span-8 place-self-center text-center sm:text-left justify-self-start">
           <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-3">
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500">
               你好，我
@@ -45,7 +45,7 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
-        <div className="col-span-5 place-self-center mt-4 lg:mt-0">
+        <div className="col-span-4 place-self-center mt-4 lg:mt-0">
           <div className="rounded-full bg-[#181818] w-[300px] h-[300px] lg:w-[350px] lg:h-[350px] overflow-hidden relative ">
             <Image
               src="/images/profile_image.png"
