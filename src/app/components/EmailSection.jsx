@@ -13,6 +13,14 @@ const EmailSection = () => {
 
   const handleSubmitMsg = async (e) => {
     e.preventDefault();
+
+    // 檢查是否有空白欄位
+    if (!email || !subject || !message) {
+      setIsEmailSend(false);
+      console.log("請填寫完整資料！");
+      return;
+    }
+
     try {
       const res = await axios.post(
         "api/send",
@@ -123,8 +131,10 @@ const EmailSection = () => {
           >
             發送訊息
           </button>
-          {isEmailSend && (
+          {isEmailSend ? (
             <p className="text-green-500 text-sm mt-2">訊息已成功發送！</p>
+          ) : (
+            <p className="text-red-500 text-sm mt-2">請填寫完整資料！</p>
           )}
         </form>
       </div>
