@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { ImGithub } from "react-icons/im";
 import { GrInstagram } from "react-icons/gr";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
 
 const EmailSection = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +19,7 @@ const EmailSection = () => {
     // 檢查是否有空白欄位
     if (!email || !subject || !message) {
       setIsEmailSend(false);
-      console.log("請填寫完整資料！");
+      toast.error("請填寫完整資料！");
       return;
     }
 
@@ -40,7 +42,7 @@ const EmailSection = () => {
         setSubject("");
         setMessage("");
         setIsEmailSend(true);
-        console.log("訊息已成功發送！");
+        toast.success("訊息已成功發送！");
       }
     } catch (e) {
       console.log(e);
@@ -131,13 +133,10 @@ const EmailSection = () => {
           >
             發送訊息
           </button>
-          {isEmailSend ? (
-            <p className="text-green-500 text-sm mt-2">訊息已成功發送！</p>
-          ) : (
-            <p className="text-red-500 text-sm mt-2">請填寫完整資料！</p>
-          )}
         </form>
       </div>
+
+      <ToastContainer position="top-center" autoClose={2000} theme="colored" />
     </section>
   );
 };
