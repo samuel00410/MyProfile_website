@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-scroll";
 
 const HeroSection = () => {
   return (
@@ -43,16 +43,25 @@ const HeroSection = () => {
           </p>
           <div>
             <button className="px-6 py-3 mr-4 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">
-              查看作品集
+              <Link
+                activeClass="active_nav"
+                to="project"
+                spy={true}
+                smooth={true}
+                offset={-90}
+                duration={500}
+              >
+                查看作品集
+              </Link>
             </button>
             <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white mt-3">
-              <Link
+              <a
                 className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2"
                 href="https://pda.104.com.tw/profile/preview?vno=76abhspnc"
                 target="_blank"
               >
                 查看我的履歷
-              </Link>
+              </a>
             </button>
           </div>
         </motion.div>
