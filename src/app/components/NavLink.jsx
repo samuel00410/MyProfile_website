@@ -4,6 +4,7 @@ import { Link } from "react-scroll";
 const NavLink = ({ href, title }) => {
   return (
     <Link
+      activeClass="active_nav"
       to={href}
       spy={true}
       smooth={true}

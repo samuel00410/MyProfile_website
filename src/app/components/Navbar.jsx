@@ -36,7 +36,7 @@ const Navbar = () => {
           to="home"
           spy={true}
           smooth={true}
-          offset={-90}
+          offset={-100}
           duration={500}
           className="text-white text-2xl md:text-5xl font-semibold cursor-pointer"
         >
