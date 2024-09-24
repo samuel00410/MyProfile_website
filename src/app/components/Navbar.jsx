@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
+import { Link } from "react-scroll";
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
 import { IoMdClose } from "react-icons/io";
@@ -9,19 +9,19 @@ import { IoMenuSharp } from "react-icons/io5";
 const navLinks = [
   {
     title: "首頁",
-    path: "#home",
+    path: "home",
   },
   {
     title: "關於我",
-    path: "#about",
+    path: "about",
   },
   {
     title: "我的專案",
-    path: "#project",
+    path: "project",
   },
   {
     title: "聯絡我",
-    path: "#contact",
+    path: "contact",
   },
 ];
 
@@ -33,8 +33,12 @@ const Navbar = () => {
       <div className="flex container flex-wrap justify-between items-center mx-auto px-4 py-2 lg:py-4">
         {/* Logo */}
         <Link
-          href={"/"}
-          className="text-white text-2xl md:text-5xl font-semibold"
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-90}
+          duration={500}
+          className="text-white text-2xl md:text-5xl font-semibold cursor-pointer"
         >
           LOGO
         </Link>
