@@ -28,6 +28,10 @@ const navLinks = [
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
+  const closeNavbar = () => {
+    setIsNavbarOpen(false);
+  };
+
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
       <div className="flex container flex-wrap justify-between items-center mx-auto px-4 py-2 lg:py-4">
@@ -60,7 +64,7 @@ const Navbar = () => {
             </button>
           )}
         </div>
-        {/* 選單 */}
+        {/* 選單 (桌面板) */}
         <div className="menu hidden md:block md:w-auto">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {navLinks.map((navLink, index) => {
@@ -73,8 +77,10 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/* 下拉選單 (平板以上不顯示) */}
-      {isNavbarOpen ? <MenuOverlay links={navLinks} /> : null}
+      {/* 下拉選單 (移動版，平板以上不顯示) */}
+      {isNavbarOpen && (
+        <MenuOverlay closeNavbar={closeNavbar} links={navLinks} />
+      )}
     </nav>
   );
 };

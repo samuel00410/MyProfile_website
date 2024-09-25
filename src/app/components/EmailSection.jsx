@@ -56,7 +56,7 @@ const EmailSection = () => {
     >
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       {/* 左邊聯絡資訊 */}
-      <div className="z-10">
+      <div>
         <h2 className="text-4xl font-bold text-white my-2">聯絡資訊</h2>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           我目前正在尋找新的工作機會，不論您有問題我都會盡力回覆您的訊息！歡迎與我聯絡！
