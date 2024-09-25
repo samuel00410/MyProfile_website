@@ -44,7 +44,7 @@ const Navbar = () => {
           duration={500}
           className="text-white text-2xl md:text-5xl font-semibold cursor-pointer"
         >
-          LOGO
+          Samuel
         </Link>
         {/* 下拉選單按鈕 (平板以上不顯示) */}
         <div className="mobile-menu block md:hidden">
