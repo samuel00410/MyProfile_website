@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
@@ -48,10 +48,6 @@ const ProjectSection = () => {
   const projectRef = useRef(null); // *用 useRef 來追蹤專案區域
   const isInView = useInView(projectRef); // *用 useInView 來檢查元素是否在視窗中
   const [activeTag, setActiveTag] = useState("All");
-
-  useEffect(() => {
-    console.log(projectsData[0].tag.includes("Static"));
-  }, []);
 
   // 定義卡片的動畫變體
   const cardVariants = {
