@@ -1,6 +1,7 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
+import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
@@ -12,6 +13,7 @@ const projectsData = [
     imageUrl: "/images/projects/project1.png",
     gitUrl: "https://github.com/samuel00410/escape_room_ProjectProduct",
     previewUrl: "https://escaperoom-project-6a9688f7a146.herokuapp.com/",
+    tag: ["All", "Dynamic"],
   },
   {
     id: 2,
@@ -20,6 +22,7 @@ const projectsData = [
     imageUrl: "/images/projects/project2.png",
     gitUrl: "https://github.com/samuel00410/VueVIteWeatherApp",
     previewUrl: "https://jocular-biscuit-3336b3.netlify.app",
+    tag: ["All", "Dynamic"],
   },
   {
     id: 3,
@@ -28,6 +31,7 @@ const projectsData = [
     imageUrl: "/images/projects/project3.png",
     gitUrl: "https://github.com/samuel00410/Vite_React_ForJourneyToJapan_Web",
     previewUrl: "https://vite-forjourneytojapan.netlify.app",
+    tag: ["All", "Static"],
   },
   {
     id: 4,
@@ -36,12 +40,18 @@ const projectsData = [
     imageUrl: "/images/projects/project4.png",
     gitUrl: "/",
     previewUrl: "https://zesty-gogocannoli-9e40fc.netlify.app",
+    tag: ["All", "Static"],
   },
 ];
 
 const ProjectSection = () => {
   const projectRef = useRef(null); // *用 useRef 來追蹤專案區域
   const isInView = useInView(projectRef); // *用 useInView 來檢查元素是否在視窗中
+  const [activeTag, setActiveTag] = useState("All");
+
+  useEffect(() => {
+    console.log(projectsData[0].tag.includes("Static"));
+  }, []);
 
   // 定義卡片的動畫變體
   const cardVariants = {
@@ -49,14 +59,45 @@ const ProjectSection = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  // 選擇專案標籤
+  const handleTagChange = (tag) => {
+    setActiveTag(tag);
+  };
+
+  // 將專案資料透過 acriveTag 來篩選對應的專案
+  const filteredProjects = projectsData.filter((project) => {
+    if (activeTag === "All") {
+      return project;
+    } else {
+      return project.tag.includes(activeTag);
+    }
+  });
+
   return (
     <section id="project">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
         我的專案作品
       </h2>
+      <div className="py-6 flex justify-center items-center gap-2 text-white">
+        <ProjectTag
+          name="全部"
+          isSelected={activeTag === "All"}
+          selectTag={() => handleTagChange("All")}
+        />
+        <ProjectTag
+          name="靜態"
+          isSelected={activeTag === "Static"}
+          selectTag={() => handleTagChange("Static")}
+        />
+        <ProjectTag
+          name="動態"
+          isSelected={activeTag === "Dynamic"}
+          selectTag={() => handleTagChange("Dynamic")}
+        />
+      </div>
       {/* 專案作品列表 */}
-      <div ref={projectRef} className="grid md:grid-cols-2 gap-8 md:gap-12">
-        {projectsData.map((project, index) => {
+      <ul ref={projectRef} className="grid md:grid-cols-2 gap-8 md:gap-12">
+        {filteredProjects.map((project, index) => {
           return (
             <motion.li
               key={index}
@@ -76,7 +117,7 @@ const ProjectSection = () => {
             </motion.li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 };

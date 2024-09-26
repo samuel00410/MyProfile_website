@@ -14,6 +14,7 @@ const ProjectCard = ({ title, description, imgUrl, gitUrl, previewUrl }) => {
             href={gitUrl}
             target="_blank"
             className="w-14 h-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white"
+            title="前往Github"
           >
             <FaLink className="w-10 h-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:text-white" />
           </Link>
@@ -21,6 +22,7 @@ const ProjectCard = ({ title, description, imgUrl, gitUrl, previewUrl }) => {
             href={previewUrl}
             target="_blank"
             className="w-14 h-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white"
+            title="前往觀看網站"
           >
             <FaEye className="w-10 h-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:text-white" />
           </Link>
